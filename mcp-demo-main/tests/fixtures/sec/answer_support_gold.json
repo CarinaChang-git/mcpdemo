@@ -1,0 +1,95 @@
+{
+  "dataset_kind": "synthetic_offline",
+  "cases": [
+    {
+      "id": "aapl-risk",
+      "sources": [
+        {
+          "citation_id": "aapl-risk-2023",
+          "accession_number": "0000320193-23-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm",
+          "section_code": "ITEM_1A",
+          "excerpt": "Supply chain concentration and manufacturing disruption risk."
+        }
+      ],
+      "claims": [
+        {
+          "text": "固定資料指出 AAPL 有供應鏈集中與製造中斷風險。",
+          "supported_by": ["aapl-risk-2023"]
+        }
+      ]
+    },
+    {
+      "id": "aapl-revenue",
+      "sources": [
+        {
+          "citation_id": "aapl-revenue-2023",
+          "accession_number": "0000320193-23-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm",
+          "concept": "Revenues",
+          "period_end": "2023-09-30",
+          "excerpt": "Revenues = 100 USD for fiscal 2023."
+        }
+      ],
+      "claims": [
+        {
+          "text": "固定資料中 AAPL 2023 會計年度營收為 100 USD。",
+          "supported_by": ["aapl-revenue-2023"]
+        }
+      ]
+    },
+    {
+      "id": "aapl-risk-and-revenue",
+      "sources": [
+        {
+          "citation_id": "aapl-risk-2023",
+          "accession_number": "0000320193-23-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm",
+          "section_code": "ITEM_1A",
+          "excerpt": "Supply chain concentration and manufacturing disruption risk."
+        },
+        {
+          "citation_id": "aapl-revenue-2023",
+          "accession_number": "0000320193-23-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm",
+          "concept": "Revenues",
+          "period_end": "2023-09-30",
+          "excerpt": "Revenues = 100 USD for fiscal 2023."
+        }
+      ],
+      "claims": [
+        {
+          "text": "固定資料中 AAPL 2023 年營收為 100 USD，且揭露供應鏈集中風險。",
+          "supported_by": ["aapl-risk-2023", "aapl-revenue-2023"]
+        }
+      ]
+    },
+    {
+      "id": "aapl-cross-period",
+      "sources": [
+        {
+          "citation_id": "aapl-revenue-2022",
+          "accession_number": "0000320193-22-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000010/aapl-20220924.htm",
+          "concept": "Revenues",
+          "period_end": "2022-09-24",
+          "excerpt": "Revenues = 90 USD for fiscal 2022."
+        },
+        {
+          "citation_id": "aapl-revenue-2023",
+          "accession_number": "0000320193-23-000010",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm",
+          "concept": "Revenues",
+          "period_end": "2023-09-30",
+          "excerpt": "Revenues = 100 USD for fiscal 2023."
+        }
+      ],
+      "claims": [
+        {
+          "text": "固定資料中 AAPL 營收由 2022 會計年度的 90 USD 增至 2023 會計年度的 100 USD。",
+          "supported_by": ["aapl-revenue-2022", "aapl-revenue-2023"]
+        }
+      ]
+    }
+  ]
+}

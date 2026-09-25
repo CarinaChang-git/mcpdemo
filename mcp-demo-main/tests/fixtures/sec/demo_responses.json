@@ -1,0 +1,160 @@
+{
+  "status": {
+    "ready": true,
+    "mcp_status": "ready",
+    "scope": {
+      "tickers": ["AAPL", "MSFT", "NVDA"],
+      "forms": ["10-K", "10-Q"],
+      "period_from": "2021-01-01",
+      "period_to": "2025-12-31"
+    },
+    "last_sync_at": "2026-09-23T08:00:00+00:00",
+    "active_index_build": "build-demo-v1"
+  },
+  "responses": {
+    "比較 AAPL 最近五個已完成會計年度的 Risk Factors 變化。": {
+      "answer_markdown": "AAPL 的供應鏈風險揭露逐年更具體。[rag-aapl]",
+      "citation_ids": ["rag-aapl"],
+      "warnings": [],
+      "is_complete": true,
+      "citations": [
+        {
+          "citation_id": "rag-aapl",
+          "company_name": "Apple Inc.",
+          "ticker": "AAPL",
+          "form": "10-K",
+          "period_end": "2025-09-27",
+          "filing_date": "2025-10-31",
+          "accession_number": "0000320193-25-000079",
+          "section_code": "ITEM_1A",
+          "excerpt": "The Company depends on component and manufacturing partners.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
+        }
+      ],
+      "tool_traces": [
+        {
+          "name": "search_filing_sections",
+          "purpose": "搜尋 SEC filing 敘事章節",
+          "status": "ok",
+          "duration_ms": 42,
+          "result_count": 4,
+          "raw_prompt": "不得顯示的完整 prompt",
+          "api_key": "不得顯示的秘密"
+        }
+      ]
+    },
+    "列出 MSFT 最近五個已完成會計年度的營收趨勢。": {
+      "answer_markdown": "MSFT 營收呈成長趨勢。[xbrl-msft]",
+      "citation_ids": ["xbrl-msft"],
+      "warnings": [],
+      "is_complete": true,
+      "citations": [
+        {
+          "citation_id": "xbrl-msft",
+          "ticker": "MSFT",
+          "taxonomy": "us-gaap",
+          "concept": "Revenues",
+          "value": "281724000000",
+          "unit": "USD",
+          "end_date": "2025-06-30",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "form": "10-K",
+          "filing_date": "2025-07-30",
+          "accession_number": "0000950170-25-100000",
+          "excerpt": "Revenues: 281724000000 USD (FY 2025)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100000/msft-20250630.htm"
+        }
+      ],
+      "tool_traces": [
+        {
+          "name": "get_financial_metric",
+          "purpose": "讀取 SEC XBRL 財務數值",
+          "status": "ok",
+          "duration_ms": 35,
+          "result_count": 5
+        }
+      ]
+    },
+    "NVDA 的資料中心營收成長與 Risk Factors 變化有何關聯？": {
+      "answer_markdown": "資料中心成長伴隨供應與客戶集中風險揭露增加。[rag-nvda][xbrl-nvda]",
+      "citation_ids": ["rag-nvda", "xbrl-nvda"],
+      "warnings": ["僅能指出同期變化，不能推論因果。"],
+      "is_complete": false,
+      "citations": [
+        {
+          "citation_id": "rag-nvda",
+          "company_name": "NVIDIA Corporation",
+          "ticker": "NVDA",
+          "form": "10-K",
+          "period_end": "2025-01-26",
+          "filing_date": "2025-02-26",
+          "accession_number": "0001045810-25-000023",
+          "section_code": "ITEM_1A",
+          "excerpt": "We rely on third parties to manufacture our products.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm"
+        },
+        {
+          "citation_id": "xbrl-nvda",
+          "ticker": "NVDA",
+          "taxonomy": "us-gaap",
+          "concept": "Revenues",
+          "value": "130497000000",
+          "unit": "USD",
+          "end_date": "2025-01-26",
+          "fiscal_year": 2025,
+          "fiscal_period": "FY",
+          "form": "10-K",
+          "filing_date": "2025-02-26",
+          "accession_number": "0001045810-25-000023",
+          "excerpt": "Revenues: 130497000000 USD (FY 2025)",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000023/nvda-20250126.htm"
+        }
+      ],
+      "tool_traces": [
+        {
+          "name": "search_filing_sections",
+          "purpose": "搜尋 SEC filing 敘事章節",
+          "status": "ok",
+          "duration_ms": 39,
+          "result_count": 3
+        },
+        {
+          "name": "get_financial_metric",
+          "purpose": "讀取 SEC XBRL 財務數值",
+          "status": "ok",
+          "duration_ms": 31,
+          "result_count": 5
+        }
+      ]
+    },
+    "HTML 安全測試": {
+      "answer_markdown": "<script>alert('xss')</script> 純文字證據。[rag-aapl]",
+      "citation_ids": ["rag-aapl"],
+      "warnings": [],
+      "is_complete": true,
+      "citations": [
+        {
+          "citation_id": "rag-aapl",
+          "company_name": "Apple Inc.",
+          "ticker": "AAPL",
+          "form": "10-K",
+          "period_end": "2025-09-27",
+          "filing_date": "2025-10-31",
+          "accession_number": "0000320193-25-000079",
+          "section_code": "ITEM_1A",
+          "excerpt": "<img src=x onerror=alert(1)>",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm"
+        }
+      ],
+      "tool_traces": []
+    }
+  },
+  "errors": {
+    "模擬 corpus 錯誤": "CORPUS_UNAVAILABLE",
+    "模擬 MCP 錯誤": "MCP_UNAVAILABLE",
+    "模擬模型錯誤": "MODEL_UNAVAILABLE",
+    "模擬 SEC live 錯誤": "SEC_UNAVAILABLE",
+    "模擬證據錯誤": "EVIDENCE_INVALID"
+  }
+}

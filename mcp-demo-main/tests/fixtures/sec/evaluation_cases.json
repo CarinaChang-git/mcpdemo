@@ -1,0 +1,215 @@
+{
+  "corpus": [
+    {
+      "cik": "0000320193",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "form": "10-K",
+      "filing_date": "2023-11-03",
+      "period_end": "2023-09-30",
+      "accession_number": "0000320193-23-000010",
+      "primary_document": "aapl-20230930.htm",
+      "section_code": "ITEM_1A",
+      "section_title": "Item 1A. Risk Factors",
+      "content": "Supply chain concentration and manufacturing disruption risk.",
+      "chunk_id": "10000000-0000-0000-0000-000000000001"
+    },
+    {
+      "cik": "0000320193",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "form": "10-K",
+      "filing_date": "2023-11-03",
+      "period_end": "2023-09-30",
+      "accession_number": "0000320193-23-000010",
+      "primary_document": "aapl-20230930.htm",
+      "section_code": "ITEM_7",
+      "section_title": "Item 7. Management Discussion",
+      "content": "Services revenue and operating margin trend in fiscal 2023.",
+      "chunk_id": "10000000-0000-0000-0000-000000000002"
+    },
+    {
+      "cik": "0000320193",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "form": "10-K",
+      "filing_date": "2023-11-03",
+      "period_end": "2023-09-30",
+      "accession_number": "0000320193-23-000010",
+      "primary_document": "aapl-20230930.htm",
+      "section_code": "ITEM_1C",
+      "section_title": "Item 1C. Cybersecurity",
+      "content": "Cybersecurity governance and incident response oversight.",
+      "chunk_id": "10000000-0000-0000-0000-000000000003"
+    },
+    {
+      "cik": "0000320193",
+      "ticker": "AAPL",
+      "company_name": "Apple Inc.",
+      "form": "10-K",
+      "filing_date": "2022-10-28",
+      "period_end": "2022-09-24",
+      "accession_number": "0000320193-22-000010",
+      "primary_document": "aapl-20220924.htm",
+      "section_code": "ITEM_7",
+      "section_title": "Item 7. Management Discussion",
+      "content": "Services revenue and operating margin trend in fiscal 2022.",
+      "chunk_id": "10000000-0000-0000-0000-000000000004"
+    },
+    {
+      "cik": "0000789019",
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "form": "10-K",
+      "filing_date": "2023-07-27",
+      "period_end": "2023-06-30",
+      "accession_number": "0000789019-23-000010",
+      "primary_document": "msft-20230630.htm",
+      "section_code": "ITEM_7",
+      "section_title": "Item 7. Management Discussion",
+      "content": "Cloud services growth and Azure demand increased revenue.",
+      "chunk_id": "10000000-0000-0000-0000-000000000005"
+    },
+    {
+      "cik": "0001045810",
+      "ticker": "NVDA",
+      "company_name": "NVIDIA Corporation",
+      "form": "10-Q",
+      "filing_date": "2024-05-29",
+      "period_end": "2024-04-28",
+      "accession_number": "0001045810-24-000010",
+      "primary_document": "nvda-20240428.htm",
+      "section_code": "PART_I_ITEM_2",
+      "section_title": "Part I Item 2. Management Discussion",
+      "content": "Data center demand accelerated quarterly revenue growth.",
+      "chunk_id": "10000000-0000-0000-0000-000000000006"
+    }
+  ],
+  "cases": [
+    {
+      "id": "aapl-risk",
+      "query": "supply chain concentration risk",
+      "filters": {
+        "tickers": ["AAPL"],
+        "forms": ["10-K"],
+        "period_from": "2023-09-30",
+        "period_to": "2023-09-30",
+        "sections": ["ITEM_1A"]
+      },
+      "expected": [
+        {
+          "ticker": "AAPL",
+          "form": "10-K",
+          "filing_date": "2023-11-03",
+          "period_end": "2023-09-30",
+          "accession_number": "0000320193-23-000010",
+          "section_code": "ITEM_1A",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm"
+        }
+      ]
+    },
+    {
+      "id": "msft-cloud",
+      "query": "cloud services growth",
+      "filters": {
+        "tickers": ["MSFT"],
+        "forms": ["10-K"],
+        "sections": ["ITEM_7"]
+      },
+      "expected": [
+        {
+          "ticker": "MSFT",
+          "form": "10-K",
+          "filing_date": "2023-07-27",
+          "period_end": "2023-06-30",
+          "accession_number": "0000789019-23-000010",
+          "section_code": "ITEM_7",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000078901923000010/msft-20230630.htm"
+        }
+      ]
+    },
+    {
+      "id": "nvda-quarterly",
+      "query": "data center demand",
+      "filters": {
+        "tickers": ["NVDA"],
+        "forms": ["10-Q"],
+        "sections": ["PART_I_ITEM_2"]
+      },
+      "expected": [
+        {
+          "ticker": "NVDA",
+          "form": "10-Q",
+          "filing_date": "2024-05-29",
+          "period_end": "2024-04-28",
+          "accession_number": "0001045810-24-000010",
+          "section_code": "PART_I_ITEM_2",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581024000010/nvda-20240428.htm"
+        }
+      ]
+    },
+    {
+      "id": "aapl-cross-period",
+      "query": "services revenue margin trend",
+      "filters": {
+        "tickers": ["AAPL"],
+        "forms": ["10-K"],
+        "period_from": "2022-09-24",
+        "period_to": "2023-09-30",
+        "sections": ["ITEM_7"]
+      },
+      "expected": [
+        {
+          "ticker": "AAPL",
+          "form": "10-K",
+          "filing_date": "2023-11-03",
+          "period_end": "2023-09-30",
+          "accession_number": "0000320193-23-000010",
+          "section_code": "ITEM_7",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm"
+        },
+        {
+          "ticker": "AAPL",
+          "form": "10-K",
+          "filing_date": "2022-10-28",
+          "period_end": "2022-09-24",
+          "accession_number": "0000320193-22-000010",
+          "section_code": "ITEM_7",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000010/aapl-20220924.htm"
+        }
+      ]
+    },
+    {
+      "id": "no-result",
+      "query": "risk",
+      "filters": {
+        "tickers": ["AAPL"],
+        "forms": ["10-K"],
+        "period_from": "2010-01-01",
+        "period_to": "2010-12-31",
+        "sections": ["ITEM_1A"]
+      },
+      "expected": []
+    },
+    {
+      "id": "aapl-cybersecurity",
+      "query": "cybersecurity governance",
+      "filters": {
+        "tickers": ["AAPL"],
+        "forms": ["10-K"],
+        "sections": ["ITEM_1C"]
+      },
+      "expected": [
+        {
+          "ticker": "AAPL",
+          "form": "10-K",
+          "filing_date": "2023-11-03",
+          "period_end": "2023-09-30",
+          "accession_number": "0000320193-23-000010",
+          "section_code": "ITEM_1C",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019323000010/aapl-20230930.htm"
+        }
+      ]
+    }
+  ]
+}
